@@ -56,3 +56,8 @@ jobs:
       run: |
         cd terraform-code
         terraform apply --auto-approve
+    - name: AWS CodeDeploy
+      uses: sourcetoad/aws-codedeploy-action@v1
+      with:
+        codedeploy_name: example-codedeploy_app
+        codedeploy_group: example-codedeploy_deployment_group

@@ -6,6 +6,7 @@ resource "aws_instance" "web_instance" {
   subnet_id = element(var.public_subnet,0)
   iam_instance_profile = aws_iam_instance_profile.instance_profile.id
   vpc_security_group_ids = var.security_group
+  user_data = filebase64("${path.module}/bash.sh")
   tags = {
     Name = "web_instance"
   }
@@ -61,33 +62,4 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 resource "aws_iam_instance_profile" "instance_profile" {
   name = "instance_profile"
   role = aws_iam_role.iam_role.name
-}
-
-resource "aws_iam_role" "iam_codedeploy_service" {
-  name = "codedeploy-service-role"
-
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "",
-      "Effect": "Allow",
-      "Principal": {
-        "Service": [
-          "codedeploy.amazonaws.com"
-        ]
-      },
-      "Action": "sts:AssumeRole"
-    }
-  ]
-}
-EOF
-}
-
-# attach AWS managed policy called AWSCodeDeployRole
-# required for deployments which are to an EC2 compute platform
-resource "aws_iam_role_policy_attachment" "iam_codedeploy_service_attachment" {
-  role       = "${aws_iam_role.iam_codedeploy_service.name}"
-  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
 }

@@ -13,3 +13,6 @@ module "module_server"{
     security_group = [module.module_network.security_group]
 }
 
+module "module_codeDeploy" {
+    source = "./codeDeploy"
+}
