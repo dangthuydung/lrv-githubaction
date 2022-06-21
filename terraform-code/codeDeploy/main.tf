@@ -28,6 +28,10 @@ resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
   role       = aws_iam_role.iam_role_codedeply.name
 }
 
+resource "aws_sns_topic" "example" {
+  name = "example-topic"
+}
+
 resource "aws_codedeploy_deployment_group" "codedeploy_deployment_group" {
   app_name              = aws_codedeploy_app.codedeploy_app.name
   deployment_group_name = "example-codedeploy_deployment_group"
