@@ -4,7 +4,6 @@ resource "aws_instance" "web_instance" {
   associate_public_ip_address = true
   key_name = var.key_name
   subnet_id = element(var.public_subnet,0)
-  user_data = filebase64("${path.module}/bash.sh")
   iam_instance_profile = aws_iam_instance_profile.instance_profile.id
   vpc_security_group_ids = var.security_group
   tags = {
