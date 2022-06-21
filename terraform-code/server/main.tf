@@ -13,7 +13,7 @@ resource "aws_instance" "web_instance" {
 }
 
 resource "aws_iam_policy" "iam_policy" {
-  name        = "test_policy11"
+  name        = "test_policy123"
   path        = "/"
   description = "My test policy"
 
@@ -35,7 +35,7 @@ resource "aws_iam_policy" "iam_policy" {
 }
 
 resource "aws_iam_role" "iam_role" {
-  name = "test_role11"
+  name = "test_role123"
 
   # Terraform's "jsonencode" function converts a
   # Terraform expression result to valid JSON syntax.
@@ -60,6 +60,6 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 }
 
 resource "aws_iam_instance_profile" "instance_profile" {
-  name = "instance_profile"
+  name = "instance_profile123"
   role = aws_iam_role.iam_role.name
 }
