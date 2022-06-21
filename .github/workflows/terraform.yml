@@ -40,24 +40,24 @@ jobs:
     #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    - name: Terraform init
+    - name: Terraform destroy
       run: |
         cd terraform-code
-        terraform init
-    - name: Terraform validate
-      run: |
-        cd terraform-code
-        terraform validate
-    - name: "terraform: plan"
-      run: |
-        cd terraform-code
-        terraform plan
-    - name: "terraform: apply"
-      run: |
-        cd terraform-code
-        terraform apply --auto-approve
-    - name: AWS CodeDeploy
-      uses: sourcetoad/aws-codedeploy-action@v1
-      with:
-        codedeploy_name: example-codedeploy_app
-        codedeploy_group: example-codedeploy_deployment_group
+        terraform destroy --auto-approve
+    # - name: Terraform validate
+    #   run: |
+    #     cd terraform-code
+    #     terraform validate
+    # - name: "terraform: plan"
+    #   run: |
+    #     cd terraform-code
+    #     terraform plan
+    # - name: "terraform: apply"
+    #   run: |
+    #     cd terraform-code
+    #     terraform apply --auto-approve
+    # - name: AWS CodeDeploy
+    #   uses: sourcetoad/aws-codedeploy-action@v1
+    #   with:
+    #     codedeploy_name: example-codedeploy_app
+    #     codedeploy_group: example-codedeploy_deployment_group
