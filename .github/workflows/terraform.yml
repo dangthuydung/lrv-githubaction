@@ -40,6 +40,11 @@ jobs:
     #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    
+    - name: Terraform init
+      run: |
+        cd terraform-code
+        terraform init
     - name: Terraform destroy
       run: |
         cd terraform-code
