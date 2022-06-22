@@ -1,10 +1,6 @@
-resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = var.aws_vpc_endpoint
-  service_name = "com.amazonaws.ap-southeast-1.s3"
-}
 
 resource "aws_s3_bucket" "terraform-state" {
-    bucket = "terraform-state-abccc"
+    bucket = "terraform-state-dungdang"
     acl    = "private"
 
     lifecycle {
