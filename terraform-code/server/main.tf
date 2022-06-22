@@ -7,6 +7,8 @@ resource "aws_instance" "web_instance" {
   iam_instance_profile = aws_iam_instance_profile.instance_profile.id
   vpc_security_group_ids = var.security_group
   user_data = filebase64("${path.module}/bash.sh")
+
+  
   tags = {
     Name = "web_instance"
   }
