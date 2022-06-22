@@ -17,16 +17,16 @@ module "module_codeDeploy" {
     source = "./codeDeploy"
 }
 
-module "module_s3" {
-    source = "./s3"
+# module "module_s3" {
+#     source = "./s3"
 
-}
-
-# terraform {
-#   backend "s3" {
-#       bucket = "terraform-state"
-#       key = "global/s3/terraform.tfstate"
-#       dynamodb_table = "terraform-state-locking"
-#       encrypt = true
-#   }
 # }
+
+terraform {
+  backend "s3" {
+      bucket = "terraform-state"
+      key = "global/s3/terraform.tfstate"
+      dynamodb_table = "terraform-state-locking"
+      encrypt = true
+  }
+}
