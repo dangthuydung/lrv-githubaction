@@ -19,13 +19,11 @@ module "module_codeDeploy" {
 
 # module "module_s3" {
 #     source = "./s3"
-#     aws_vpc_endpoint = module.module_network.vpc_id
-
 # }
 
 terraform {
   backend "s3" {
-      bucket = "terraform-state-abccc"
+      bucket = "terraform-state-dungdang"
       key = "terraform.tfstate"
     #   dynamodb_table = "terraform-state-locking"
       encrypt = true
