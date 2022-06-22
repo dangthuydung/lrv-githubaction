@@ -1,4 +1,4 @@
-name: 'Terraform'
+name: 'Deploy'
 on:
   push:
     branches:
@@ -35,21 +35,7 @@ jobs:
       run: |
         cd terraform-code
         terraform init
-    - name: Terraform validate
-      run: |
-        cd terraform-code
-        terraform validate
-    - name: "terraform: plan"
-      run: |
-        cd terraform-code
-        terraform plan
     - name: "terraform: apply"
       run: |
         cd terraform-code
         terraform apply --auto-approve
-
-    - name: AWS CodeDeploy
-      uses: sourcetoad/aws-codedeploy-action@v1
-      with:
-        codedeploy_name: example-codedeploy-app
-        codedeploy_group: example-codedeploy-deployment-group
