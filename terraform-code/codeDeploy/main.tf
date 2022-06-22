@@ -1,10 +1,10 @@
 resource "aws_codedeploy_app" "codedeploy_app" {
   compute_platform = "Server"
-  name             = "example-codedeploy_app123"
+  name             = "example-codedeploy-app"
 }
 
 resource "aws_iam_role" "iam_role_codedeply" {
-  name = "example-iam_role_codedeploy123"
+  name = "example-iam_role_codedeploy"
 
   assume_role_policy = <<EOF
 {
@@ -34,7 +34,7 @@ resource "aws_sns_topic" "example" {
 
 resource "aws_codedeploy_deployment_group" "codedeploy_deployment_group" {
   app_name              = aws_codedeploy_app.codedeploy_app.name
-  deployment_group_name = "example-codedeploy_deployment_group123"
+  deployment_group_name = "example-codedeploy-deployment-group"
   service_role_arn      = aws_iam_role.iam_role_codedeply.arn
 
   ec2_tag_set {
