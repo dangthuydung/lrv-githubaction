@@ -25,9 +25,9 @@ module "module_codeDeploy" {
 
 terraform {
   backend "s3" {
-      bucket = "terraform-state"
-      key = "global/s3/terraform.tfstate"
-      dynamodb_table = "terraform-state-locking"
+      bucket = "terraform-state-abccc"
+      key = "terraform.tfstate"
+    #   dynamodb_table = "terraform-state-locking"
       encrypt = true
   }
 }
