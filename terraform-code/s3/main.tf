@@ -4,7 +4,7 @@ resource "aws_vpc_endpoint" "s3" {
 }
 
 resource "aws_s3_bucket" "terraform-state" {
-    bucket = "terraform-state1234599"
+    bucket = "terraform-state-abccc"
     acl    = "private"
 
     lifecycle {
