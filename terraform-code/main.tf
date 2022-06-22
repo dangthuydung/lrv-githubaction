@@ -19,7 +19,7 @@ module "module_codeDeploy" {
 
 module "module_s3" {
     source = "./s3"
-    aws_vpc_endpoint = module.module-network.vpc_id
+    aws_vpc_endpoint = module.module_network.vpc_id
 
 }
 
