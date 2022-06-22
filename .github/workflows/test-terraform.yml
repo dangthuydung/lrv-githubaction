@@ -1,12 +1,12 @@
-name: 'Terraform'
+name: 'Terraform-pullrequest'
 on:
-  push:
+  pull_request:
     branches:
     - "main"
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Terraform-pullrequest'
     runs-on: ubuntu-20.04
     environment: production
 
@@ -43,37 +43,14 @@ jobs:
       run: |
         cd terraform-code
         terraform plan
-    - name: "terraform: apply"
-      run: |
-        cd terraform-code
-        terraform apply --auto-approve
+    # - name: "terraform: apply"
+    #   run: |
+    #     cd terraform-code
+    #     terraform apply --auto-approve
+
 
     - name: AWS CodeDeploy
       uses: sourcetoad/aws-codedeploy-action@v1
       with:
         codedeploy_name: example-codedeploy-app
         codedeploy_group: example-codedeploy-deployment-group
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    - name: AWS CodeDeploy
-      uses: sourcetoad/aws-codedeploy-action@v1
-      with:
-        codedeploy_name: example-codedeploy_app
-        codedeploy_group: example-codedeploy_deployment_group
