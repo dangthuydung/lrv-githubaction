@@ -17,9 +17,9 @@ module "module_codeDeploy" {
     source = "./codeDeploy"
 }
 
-# module "module_s3" {
-#     source = "./s3"
-# }
+module "module_s3" {
+    source = "./s3"
+}
 
 terraform {
   backend "s3" {
