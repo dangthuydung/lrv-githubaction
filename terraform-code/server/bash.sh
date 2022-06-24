@@ -27,16 +27,16 @@
   sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
   composer
   sudo apt install -y php-mbstring php-xml php-bcmath 
-  sudo aws s3 cp s3://laravel-bucket123abc/nginx.txt /etc/nginx/sites-enabled/danhsach
-  cd /var/www
-  mkdir laravel-code
-  cd laravel-code/
-  sudo chown -R $USER:www-data storage
-  sudo chown -R $USER:www-data bootstrap/cache
-  sudo apt install -y npm
-  php artisan 
-  cd ~
+  # sudo aws s3 cp s3://laravel-bucket123abc/nginx.txt /etc/nginx/sites-enabled/danhsach
+  # cd /var/www
+  # mkdir laravel-code
+  # cd laravel-code/
+  # sudo chown -R $USER:www-data storage
+  # sudo chown -R $USER:www-data bootstrap/cache
+  # sudo apt install -y npm
+  # php artisan 
+  # cd ~
   sudo systemctl reload nginx 
 
-  
+
 

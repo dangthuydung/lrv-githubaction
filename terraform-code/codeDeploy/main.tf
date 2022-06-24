@@ -39,16 +39,11 @@ resource "aws_codedeploy_deployment_group" "codedeploy_deployment_group" {
 
   ec2_tag_set {
     ec2_tag_filter {
-      key   = "filterkey1"
+      key   = "Name"
       type  = "KEY_AND_VALUE"
-      value = "filtervalue"
+      value = "web_instance"
     }
 
-    ec2_tag_filter {
-      key   = "filterkey2"
-      type  = "KEY_AND_VALUE"
-      value = "filtervalue"
-    }
   }
 
   trigger_configuration {
