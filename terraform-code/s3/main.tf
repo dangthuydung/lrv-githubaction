@@ -46,13 +46,6 @@ resource "aws_s3_bucket_object" "nginx-bo" {
   etag = filemd5("./s3/nginx.txt")
 }
 
-resource "aws_s3_bucket_object" "env-bo" {
-  bucket = aws_s3_bucket.laravel-bucket122abc.id
-  key    = "env.txt"
-  acl    = "private"  
-  source = "./s3/env.txt"
-  etag = filemd5("./s3/env.txt")
-}
 
 
 
