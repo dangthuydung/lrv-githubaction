@@ -15,3 +15,28 @@
   sudo apt install -y nginx
   sudo systemctl start nginx
   sudo systemctl enable nginx
+
+  sudo apt install -y mysql-server 
+  sudo apt install -y php-fpm php-mysql 
+  sudo apt install -y php-cli unzip 
+  cd ~
+  curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php 
+  HASH=`curl -sS https://composer.github.io/installer.sig` 
+  echo $HASH 
+  php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" 
+  sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
+  composer
+  sudo apt install -y php-mbstring php-xml php-bcmath 
+  sudo aws s3 cp s3://laravel-bucket123abc/nginx.txt /etc/nginx/sites-enabled/danhsach
+  cd /var/www
+  mkdir laravel-code
+  cd laravel-code/
+  sudo chown -R $USER:www-data storage
+  sudo chown -R $USER:www-data bootstrap/cache
+  sudo apt install -y npm
+  php artisan 
+  cd ~
+  sudo systemctl reload nginx 
+
+  
+
