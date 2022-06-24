@@ -17,9 +17,11 @@ module "module_codeDeploy" {
     source = "./codeDeploy"
 }
 
-# module "module_s3" {
-#     source = "./s3"
-# }
+module "module_s3" {
+    source = "./s3"
+    bucket_name = "laravel-bucket123abc"
+    aws_vpc_endpoint = module.module_network.vpc_id
+}
 
 terraform {
   backend "s3" {
